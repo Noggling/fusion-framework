@@ -11,7 +11,8 @@ export interface Module<TKey extends string, TType, TConfig, TDeps extends Array
         instance: Record<TKey, TType> & ModulesInstanceType<ModulesType<TDeps>>
     ) => TType;
     postInitialize?: (
-        modules: Record<TKey, TType> & ModulesInstanceType<ModulesType<TDeps>>
+        modules: Record<TKey, TType> & ModulesInstanceType<ModulesType<TDeps>>,
+        config: Record<TKey, TConfig> & ModulesConfigType<ModulesType<TDeps>>
     ) => void | Promise<void>;
 }
 
